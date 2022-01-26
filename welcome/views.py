@@ -46,6 +46,7 @@ def signup ( request ) :
             newUser.last_name = lastName
             newUser.save ()
             messages.success ( request , "Your account has been created!" )
+            return redirect ( 'signin' )
         except IntegrityError as e:
              messages.success ( request , "User name:{0} or email {1} is used!!!\n"
                                           "Please enter something else.".format(userName,emailUser) )
