@@ -4,10 +4,10 @@
 
     {% if  user.is_authenticated %}
         <h3>Hello, {{ firstName }} you're logged in!</h3>
-    <button type="submit" name="signout"> <a href="/signout">signout</a> </button>
+    <button  class="btn btn-lg btn-primary" type="submit" name="signout"> <a href="/signout">signout</a> </button>
     {% else %}
-    <button type="submit" name="signup"> <a href="/signup"> signup</a> </button>
-    <button type="submit" name="signin"> <a href="/signin"> signin</a> </button>
+    <button class="btn btn-lg btn-primary" type="submit" name="signup"> <a href="/signup"> signup</a> </button>
+    <button class="btn btn-lg btn-primary" type="submit" name="signin"> <a href="/signin"> signin</a> </button>
     {% endif %}
 
 <h2> Say welcome! </h2>
@@ -15,13 +15,13 @@
 <form action="" method="post">
     {% csrf_token %}
     <label for="">Username:</label>
-    <input type="text" id="userName" name="userName" placeholder="Enter your name" required>
+    <input type="text" id="userName" name="userName" placeholder="Enter your name"  value="{{ firstName }}" required>
 
     <br>
-    <button type="submit"> Say welcome</button>
+    <button  class=" btn btn-lg btn-primary" type="submit"> Say welcome</button>
 </form>
 
 <br>
-<button type="submit" name="listVisitors"> <a href="/list_visitors"> List of visitors</a> </button>
+<button  class="btn btn-lg btn-primary" type="submit" name="listVisitors"> <a href="/list_visitors"> List of visitors</a> </button>
 
 {% endblock %}

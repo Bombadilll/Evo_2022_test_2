@@ -2,20 +2,25 @@
 
 {% block page_content %}
 
-<h2> Sign In </h2>
+<h2 class="h3 mb-3 fw-normal"> Sign In </h2>
 
 <form action="/signin" method="post">
     {% csrf_token %}
-    <label for="">Username:</label>
-    <input type="text" id="userName" name="userName" placeholder="Enter your nickname" required>
+    <div class="form-floating">
+        <label for="">Username:</label>
+        <input class="form-control" type="text" id="userName" name="userName" placeholder="Enter your nickname" required>
+    </div>
 
+    <div class="form-floating">
     <br>
-    <label for="">Password confirm:</label>
-    <input type="password" id="password1" name="password1" placeholder="Enter your pass" required>
+        <label for="">Password confirm:</label>
+        <input class="form-control" type="password" id="password1" name="password1" placeholder="Enter your pass" required>
+    </div>
 
+    <div class="form-floating">
     <br>
-    <button type="submit"> Sign in</button>
-
+        <button class=" btn btn-lg btn-primary" type="submit"> Sign in</button>
+    </div>
 </form>
 
 {% endblock %}
