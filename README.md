@@ -3,7 +3,7 @@
 
 Simple  website for test on Evo2022.
 
-Users can create an account with a username and password,say welcome, and see all visitors and date of visit/ 
+Users can create an account with a username and password,say welcome, and see all visitors and date of visit. 
 
 
 ## Installing
