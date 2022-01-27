@@ -65,7 +65,7 @@ def signin ( request ) :
         if user is not None :
             login ( request , user )
             firstName = user.first_name
-            messages.success ( request , "Hello, { 0 }} you're logged in successfully!".format(firstName) )
+            messages.success ( request , "Hello, {0} you're logged in successfully!".format(firstName) )
             return redirect ( 'home' )
         else :
             messages.error ( request , "Bad login!" )
