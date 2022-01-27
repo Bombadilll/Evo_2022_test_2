@@ -3,7 +3,7 @@
 {% block page_content %}
 
     {% if  user.is_authenticated %}
-        <h3>Hello, {{ firstName }} you're logged in!</h3>
+        <h3>Hello, you're logged in!</h3>
     <button  class="btn btn-lg btn-primary" type="submit" name="signout"> <a href="/signout">signout</a> </button>
     {% else %}
     <button class="btn btn-lg btn-primary" type="submit" name="signup"> <a href="/signup"> signup</a> </button>
