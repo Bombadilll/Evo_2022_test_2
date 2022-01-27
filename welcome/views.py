@@ -18,14 +18,14 @@ def list_visitors ( request ) :
 
 def home ( request ) :
     if request.method == "POST" :
-        userName = request.POST [ 'userName' ]
+        visitorName = request.POST.get( 'visitorName' )
 
         try:
-            newVisitor=Visitor.objects.create(name_visitor=userName)
+            newVisitor=Visitor.objects.create(name_visitor=visitorName)
             newVisitor.save()
-            messages.success ( request , "Hello {0}!!!".format(userName) )
+            messages.success ( request , "Hello {0}!!!".format(visitorName) )
         except IntegrityError as e:
-            messages.success ( request , "I have seen you already, {0}!!!".format(userName) )
+            messages.success ( request , "I have seen you already, {0}!!!".format(visitorName) )
 
     return render ( request , "welcome/index.html" )
 
@@ -33,12 +33,12 @@ def home ( request ) :
 def signup ( request ) :
     if request.method == "POST" :
 
-        userName = request.POST [ 'userName' ]
-        firstName = request.POST [ 'firstName' ]
-        lastName = request.POST [ 'lastName' ]
-        emailUser = request.POST [ 'emailUser' ]
-        password1 = request.POST [ 'password1' ]
-        password2 = request.POST [ 'password2' ]
+        userName = request.POST.get('userName' )
+        firstName = request.POST.get( 'firstName' )
+        lastName = request.POST.get('lastName' )
+        emailUser = request.POST.get( 'emailUser' )
+        password1 = request.POST.get( 'password1' )
+        password2 = request.POST.get( 'password2' )
 
         try:
             newUser = User.objects.create_user ( userName , emailUser , password1 )
@@ -57,10 +57,10 @@ def signup ( request ) :
 
 def signin ( request ) :
     if request.method == 'POST' :
-        userName = request.POST [ 'userName' ]
-        password1 = request.POST [ 'password1' ]
+        userName = request.POST.get( 'userName' )
+        password = request.POST.get('password' )
 
-        user = authenticate ( username=userName , password=password1 )
+        user = authenticate ( username=userName , password=password )
 
         if user is not None :
             login ( request , user )
